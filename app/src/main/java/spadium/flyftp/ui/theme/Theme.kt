@@ -17,7 +17,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 import spadium.flyftp.serialization.ColorModes
-import spadium.flyftp.serialization.getColorMode
+import spadium.flyftp.serialization.config
 
 private val DarkColorScheme = darkColorScheme(
         primary = Purple80,
@@ -25,12 +25,7 @@ private val DarkColorScheme = darkColorScheme(
         tertiary = Pink80
 )
 
-private val AmoledColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80,
-    background = Color.Black
-)
+private val AmoledColorScheme = DarkColorScheme.copy(background = Color.Black)
 
 private val LightColorScheme = lightColorScheme(
         primary = Purple40,
@@ -50,7 +45,7 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun FlyFTPTheme(
-    theme: ColorModes = getColorMode(),
+    theme: ColorModes = config.userSettings.colorMode,
     systemDarkMode: Boolean = isSystemInDarkTheme(),
         // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,

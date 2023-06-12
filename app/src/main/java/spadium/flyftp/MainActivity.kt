@@ -16,11 +16,10 @@ import spadium.flyftp.screens.fullscreen.MainScreen
 import spadium.flyftp.screens.Screens
 import spadium.flyftp.screens.fullscreen.SettingsScreen
 import spadium.flyftp.serialization.Config
+import spadium.flyftp.serialization.config
 import spadium.flyftp.ui.theme.FlyFTPTheme
 
 class MainActivity : ComponentActivity() {
-    lateinit var config: Config
-
     override fun onCreate(savedInstanceState: Bundle?) {
         config = Config.initializeConfiguration(applicationContext)
         super.onCreate(savedInstanceState)

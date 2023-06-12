@@ -12,7 +12,7 @@ import java.io.File
 import java.io.FileWriter
 
 @Serializable
-class Config(var servers: List<Server>, var userSettings: UserSettings) {
+data class Config(var servers: List<Server>, var userSettings: UserSettings) {
     fun validateConfig() {
 
     }
@@ -40,18 +40,11 @@ class Config(var servers: List<Server>, var userSettings: UserSettings) {
         }
     }
 
-    fun modifyConfig(context: Context, newConfig: Config) {
-        val configFile: File = File(context.filesDir, "settings.json")
-        val fileWriter: FileWriter = FileWriter(configFile)
-        val bufferedWriter: BufferedWriter = BufferedWriter(fileWriter)
-
-    }
 }
 
 @Serializable
 data class UserSettings(
     var colorMode: ColorModes,
-    var serverUsers: Map<String, String?>,
     var navBarLabels: Boolean,
     var askForDownloadDirectory: Boolean,
 )
@@ -66,26 +59,18 @@ data class Server(
     val address: String,
     val port: Int,
     val type: ServerType,
-    val users: Map<String, String>
+    val users: Map<String, String?>
 )
 
 enum class ServerType {
     FTP, FTPS
 }
 
-var config: Config = Config(
+public var config: Config = Config(
     servers = emptyList(),
     userSettings = UserSettings(
         colorMode = ColorModes.DEFAULT,
-        serverUsers = emptyMap(),
         navBarLabels = true,
         askForDownloadDirectory = true
     )
 )
-
-
-
-fun getColorMode(): ColorModes {
-    return config.userSettings.colorMode
-}
-
