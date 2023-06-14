@@ -11,14 +11,20 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import spadium.config.ConfigManager
+import spadium.config.createEntry
 import spadium.flyftp.screens.Screens
 import spadium.flyftp.screens.fullscreen.MainScreen
 import spadium.flyftp.screens.fullscreen.SettingsScreen
+import spadium.flyftp.storage.config.ColorModes
 import spadium.flyftp.ui.theme.FlyFTPTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        var cfgMan = ConfigManager("flyftp") {
+            addEntry(createEntry("theme", "What theme will FlyFTP use", ColorModes.DEFAULT))
+        }
         setContent {
             FlyFTPTheme {
                 // A surface container using the 'background' color from the theme
@@ -37,9 +43,4 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
-    val otherScreens = listOf(
-        Screens.Settings,
-        Screens.AboutPage
-    )
 }
