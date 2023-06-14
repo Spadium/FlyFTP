@@ -35,7 +35,6 @@ fun SettingsScreen(parentNavController: NavHostController, configManager: Config
     ) {
         LazyColumn(contentPadding = it) {
             items(items = configManager.getAllEntries()) { key ->
-                println(key.key)
                 SettingsListItem(configKey = key, configManager = configManager, context = context)
             }
         }
