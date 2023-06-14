@@ -12,10 +12,10 @@ import spadium.flyftp.serialization.ServerType
 fun ServerListScreen() {
     LazyColumn() {
         item {
-            ServerListItem("Myrient (ROMs)", "ftp.myrient.erista.me", 21, ServerType.FTP)
+            ServerListItem("Testing Server", "example.com", 21, ServerType.FTP)
         }
         item {
-            ServerListItem("ftp.myrient.erista.me", 21, ServerType.FTP)
+            ServerListItem("example.com", 21, ServerType.FTP)
         }
     }
 }
