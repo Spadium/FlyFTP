@@ -20,21 +20,19 @@ fun ServerListScreen() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ServerListItem(serverName: String, serverAddress: String, serverPort: Int, serverType: ServerType, modifier: Modifier = Modifier) {
     ListItem(
-        headlineText = { Text(serverName) },
-        supportingText = { Text("$serverAddress:$serverPort") },
+        headlineContent = { Text(serverName) },
+        supportingContent = { Text("$serverAddress:$serverPort") },
         trailingContent = { Text(serverType.toString()) }
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ServerListItem(serverAddress: String, serverPort: Int, serverType: ServerType, modifier: Modifier = Modifier) {
     ListItem(
-        headlineText = { Text("$serverAddress:$serverPort") },
+        headlineContent = { Text("$serverAddress:$serverPort") },
         trailingContent = { Text(serverType.toString()) }
     )
 }
