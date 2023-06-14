@@ -1,19 +1,18 @@
 [versions]
 agp = "8.2.0-alpha08"
 kotlin = "1.8.10"
-core-ktx = "1.9.0"
+core-ktx = "1.10.1"
 junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
 lifecycle-runtime-ktx = "2.6.1"
-activity-compose = "1.7.0"
-compose-bom = "2023.03.00"
+activity-compose = "1.7.2"
+compose-bom = "2023.06.00"
 material-icons-extended = "1.5.0-beta02"
 navigation-compose = "2.7.0-beta01"
 kotlinx-serialization-json = "1.5.1"
 work-runtime-ktx = "2.9.0-alpha01"
 accompanist-navigation-animation = "0.31.3-beta"
-org-jetbrains-kotlin-jvm = "1.8.10"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -40,7 +39,7 @@ accompanist-navigation-animation = { group = "com.google.accompanist", name = "a
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
+org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 
 [bundles]
 
