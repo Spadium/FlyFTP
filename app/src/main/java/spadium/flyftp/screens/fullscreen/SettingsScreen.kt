@@ -19,6 +19,7 @@ import androidx.navigation.NavHostController
 import spadium.config.ConfigItem
 import spadium.config.ConfigManager
 import spadium.flyftp.storage.config.ColorModes
+import spadium.flyftp.storage.config.getTranslatedKeyName
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -44,7 +45,7 @@ fun SettingsScreen(parentNavController: NavHostController, configManager: Config
 @Composable
 fun SettingsListItem(configKey: ConfigItem<Any>, configManager: ConfigManager, context: Context) {
     ListItem(
-        headlineContent = { Text(configKey.key) },
+        headlineContent = { Text(configKey.getTranslatedKeyName(configKey.key, context)) },
         supportingContent = { Text(configKey.description) }
     )
 }

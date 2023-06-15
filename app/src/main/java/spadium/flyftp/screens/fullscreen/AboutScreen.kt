@@ -2,9 +2,11 @@ package spadium.flyftp.screens.fullscreen
 
 import android.content.Context
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowBack
+import androidx.compose.material.icons.rounded.Square
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -35,5 +37,13 @@ fun AboutScreen(parentNavController: NavHostController) {
 
             }
         }
+    }
+}
+
+@Composable
+fun appInfoRow() {
+    Row() {
+        Icon(Icons.Rounded.Square, "FlyFTP Icon")
+        Text("FlyFTP")
     }
 }
