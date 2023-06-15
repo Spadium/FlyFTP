@@ -65,6 +65,7 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.accompanist.navigation.animation)
+    implementation(project(mapOf("path" to ":config")))
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 }

@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "FlyFTP"
 include(":app")
+include(":config")

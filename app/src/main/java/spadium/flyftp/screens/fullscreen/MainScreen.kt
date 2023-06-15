@@ -5,6 +5,7 @@ import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Add
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
@@ -50,6 +51,9 @@ fun MainScreen(parentNavController: NavHostController) {
             TopAppBar(
                 title = { Text("FlyFTP") },
                 actions = {
+                    IconButton(onClick = { parentNavController.navigate(Screens.AboutPage.route) }) {
+                        Icon(Icons.Outlined.Info, "About icon")
+                    }
                     IconButton(onClick = { parentNavController.navigate(Screens.Settings.route) }) {
                         Icon(Icons.Outlined.Settings, "Settings icon")
                     }
