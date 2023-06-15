@@ -32,6 +32,10 @@ class ConfigManager {
         return entryMap.values.toList()
     }
 
+    fun setValueOfEntry(entryKey: String, newValue: Any) {
+
+    }
+
     fun addEntry(item: ConfigItem<Any>) {
         entryMap.set(item.key, item)
     }
