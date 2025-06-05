@@ -26,7 +26,6 @@ class MainActivity : ComponentActivity() {
         val cfgMan = ConfigManager("flyftp") {
             addEntry(createEntry("theme", "What theme will FlyFTP use", ColorModes.DEFAULT))
             addEntry(createEntry("askForDownloadDirectory", "Should FlyFTP ask for your download directory?", true))
-            Log.d("FlyFTP", "initialized config manager")
         }
         setContent {
             FlyFTPTheme {

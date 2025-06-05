@@ -34,6 +34,5 @@ class ConfigManager {
 
     fun addEntry(item: ConfigItem<Any>) {
         entryMap.set(item.key, item)
-        println("Added an entry")
     }
 }
