@@ -1,21 +1,39 @@
 package spadium.config
 
-class ConfigManager(id: String, values: ConfigManager.() -> Unit) {
+class ConfigManager {
     private var entryMap: MutableMap<String, ConfigItem<Any>> = mutableMapOf()
 
-    fun getValue(key: String): Any {
-        val item = entryMap[key]
+    constructor(id: String, values: ConfigManager.() -> Unit) {
+        values()
+    }
 
-        if (item != null) {
-            if (item.value != null) {
-                return item.value!!
-            }
-            return item.defaultValue
+    fun getValue(key: String): Any {
+        val item = entryMap[key]!!
+
+        if (item.value != null) {
+                return item.value
         }
-        throw NullPointerException()
+        return item.defaultValue
+    }
+
+    fun getEntry(key: String): ConfigItem<Any> {
+        return entryMap[key]!!
+    }
+
+    fun getEntries(keys: List<String>): List<ConfigItem<Any>> {
+        val out: MutableList<ConfigItem<Any>> = mutableListOf()
+        keys.forEach { str ->
+            out.add(entryMap[str]!!)
+        }
+        return out
+    }
+
+    fun getAllEntries(): List<ConfigItem<Any>> {
+        return entryMap.values.toList()
     }
 
     fun addEntry(item: ConfigItem<Any>) {
-        entryMap[item.key] = item
+        entryMap.set(item.key, item)
+        println("Added an entry")
     }
 }
