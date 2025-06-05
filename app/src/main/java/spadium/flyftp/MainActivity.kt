@@ -1,6 +1,7 @@
 package spadium.flyftp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,8 +23,10 @@ import spadium.flyftp.ui.theme.FlyFTPTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var cfgMan = ConfigManager("flyftp") {
+        val cfgMan = ConfigManager("flyftp") {
             addEntry(createEntry("theme", "What theme will FlyFTP use", ColorModes.DEFAULT))
+            addEntry(createEntry("askForDownloadDirectory", "Should FlyFTP ask for your download directory?", true))
+            Log.d("FlyFTP", "initialized config manager")
         }
         setContent {
             FlyFTPTheme {
@@ -36,7 +39,7 @@ class MainActivity : ComponentActivity() {
                         startDestination = Screens.MainPage.route
                     ) {
                         composable(Screens.MainPage.route) { MainScreen(navController) }
-                        composable(Screens.Settings.route) { SettingsScreen(navController) }
+                        composable(Screens.Settings.route) { SettingsScreen(navController, cfgMan, applicationContext) }
                         composable(Screens.AboutPage.route) { Text("About the app") }
                     }
                 }

@@ -3,7 +3,6 @@ package spadium.flyftp.screens.fullscreen
 import android.content.Context
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -16,17 +15,15 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
-import spadium.config.ConfigItem
-import spadium.config.ConfigManager
 import spadium.flyftp.storage.config.ColorModes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsScreen(parentNavController: NavHostController, configManager: ConfigManager, context: Context) {
+fun AboutScreen(parentNavController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("FlyFTP Settings") },
+                title = { Text("About FlyFTP") },
                 navigationIcon = { IconButton(onClick = { parentNavController.navigateUp() }) {
                     Icon(Icons.Rounded.ArrowBack, "Back arrow")
                 } }
@@ -34,18 +31,9 @@ fun SettingsScreen(parentNavController: NavHostController, configManager: Config
         }
     ) {
         LazyColumn(contentPadding = it) {
-            items(items = configManager.getAllEntries()) { key ->
-                println(key.key)
-                SettingsListItem(configKey = key, configManager = configManager, context = context)
+            item {
+
             }
         }
     }
-}
-
-@Composable
-fun SettingsListItem(configKey: ConfigItem<Any>, configManager: ConfigManager, context: Context) {
-    ListItem(
-        headlineContent = { Text(configKey.key) },
-        supportingContent = { Text(configKey.description) }
-    )
 }
