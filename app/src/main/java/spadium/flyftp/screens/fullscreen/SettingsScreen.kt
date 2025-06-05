@@ -15,11 +15,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
-import spadium.flyftp.MainActivity
 import spadium.flyftp.serialization.ColorModes
-import spadium.flyftp.serialization.Config
-import spadium.flyftp.serialization.config
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -44,12 +40,12 @@ fun SettingsScreen(parentNavController: NavHostController) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsListItem(configKey: Boolean, valueUIName: String, config: Config, context: Context) {
+fun SettingsListItem(configKey: Boolean, valueUIName: String, config: Any, context: Context) {
     ListItem(headlineText = { /*TODO*/ })
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsListItem(configKey: ColorModes, valueUIName: String, config: Config, context: Context) {
+fun SettingsListItem(configKey: ColorModes, valueUIName: String, config: Any, context: Context) {
     ListItem(headlineText = { /*TODO*/ }, Modifier.clickable {  } )
 }
