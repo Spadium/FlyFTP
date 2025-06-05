@@ -41,11 +41,11 @@ fun SettingsScreen(parentNavController: NavHostController) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsListItem(configKey: Boolean, valueUIName: String, config: Any, context: Context) {
-    ListItem(headlineText = { /*TODO*/ })
+    ListItem(headlineContent = { /*TODO*/ })
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsListItem(configKey: ColorModes, valueUIName: String, config: Any, context: Context) {
-    ListItem(headlineText = { /*TODO*/ }, Modifier.clickable {  } )
+    ListItem(headlineContent = { /*TODO*/ }, Modifier.clickable {  } )
 }
