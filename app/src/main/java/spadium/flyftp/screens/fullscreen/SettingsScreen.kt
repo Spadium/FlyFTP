@@ -11,9 +11,14 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import spadium.config.ConfigItem
@@ -46,6 +51,26 @@ fun SettingsScreen(parentNavController: NavHostController, configManager: Config
 fun SettingsListItem(configKey: ConfigItem<Any>, configManager: ConfigManager, context: Context) {
     ListItem(
         headlineContent = { Text(configKey.getTranslatedKeyName(configKey.key, context)) },
-        supportingContent = { Text(configKey.description) }
+        supportingContent = { Text(configKey.description) },
+        trailingContent = {
+            when (configKey.valueType) {
+                is Boolean -> BooleanSwitch(configKey)
+                else -> Text(configKey.valueType.toString())
+            }
+        }
+    )
+}
+
+@Composable
+fun BooleanSwitch(configKey: ConfigItem<Any>) {
+    var switchState by remember { mutableStateOf(configKey.value as Boolean) }
+
+    Switch(
+        checked = switchState,
+        onCheckedChange = {
+            switchState = it
+            configKey.value = switchState
+
+        }
     )
 }

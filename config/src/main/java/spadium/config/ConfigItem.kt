@@ -5,10 +5,10 @@ class ConfigItem<T>(
     val description: String,
     val defaultValue: T,
     val valueType: T,
-    val value: T?
+    var value: T = defaultValue
 ) {
 }
 
 fun <T> createEntry(key: String, description: String, defaultValue: T): ConfigItem<T> {
-    return ConfigItem<T>(key, description, defaultValue, defaultValue, null)
+    return ConfigItem<T>(key, description, defaultValue, defaultValue)
 }
