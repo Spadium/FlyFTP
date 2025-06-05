@@ -15,7 +15,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
-import spadium.flyftp.serialization.ColorModes
+import spadium.flyftp.storage.config.ColorModes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
