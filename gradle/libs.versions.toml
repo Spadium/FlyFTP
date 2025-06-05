@@ -13,6 +13,7 @@ navigation-compose = "2.7.0-beta01"
 kotlinx-serialization-json = "1.5.1"
 work-runtime-ktx = "2.9.0-alpha01"
 accompanist-navigation-animation = "0.31.3-beta"
+org-jetbrains-kotlin-jvm = "1.8.10"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -39,6 +40,7 @@ accompanist-navigation-animation = { group = "com.google.accompanist", name = "a
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
 
 [bundles]
 
