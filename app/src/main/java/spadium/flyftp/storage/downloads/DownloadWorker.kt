@@ -1,4 +1,4 @@
-package spadium.flyftp.downloads
+package spadium.flyftp.storage.downloads
 
 import android.app.NotificationManager
 import android.content.Context
