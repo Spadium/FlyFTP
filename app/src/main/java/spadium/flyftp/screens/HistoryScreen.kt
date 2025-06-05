@@ -17,12 +17,11 @@ fun HistoryScreen() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun HistoryListItem(fileName: String, serverAddress: String, serverPort: Int, serverType: ServerType, modifier: Modifier = Modifier) {
     ListItem(
-        headlineText = { Text(fileName) },
-        supportingText = { Text("$serverAddress:$serverPort") },
+        headlineContent = { Text(fileName) },
+        supportingContent = { Text("$serverAddress:$serverPort") },
         trailingContent = { Text(serverType.toString()) }
     )
 }
