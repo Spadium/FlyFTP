@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FlyFTP</string>
+    <string name="title_activity_open_or_save_option">OpenOrSaveOptionActivity</string>
+</resources>
