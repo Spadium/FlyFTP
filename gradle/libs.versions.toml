@@ -12,6 +12,7 @@ material-icons-extended = "1.5.0-beta02"
 navigation-compose = "2.7.0-beta01"
 kotlinx-serialization-json = "1.5.1"
 work-runtime-ktx = "2.9.0-alpha01"
+accompanist-navigation-animation = "0.31.3-beta"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -32,6 +33,7 @@ androidx-material-icons-extended = { group = "androidx.compose.material", name =
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation-compose" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
 androidx-work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "work-runtime-ktx" }
+accompanist-navigation-animation = { group = "com.google.accompanist", name = "accompanist-navigation-animation", version.ref = "accompanist-navigation-animation" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

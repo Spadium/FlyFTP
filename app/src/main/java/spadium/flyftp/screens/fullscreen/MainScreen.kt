@@ -1,7 +1,10 @@
 package spadium.flyftp.screens.fullscreen
 
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
@@ -30,10 +33,17 @@ import spadium.flyftp.screens.ServerListScreen
 @Composable
 fun MainScreen(parentNavController: NavHostController) {
     val navController = rememberNavController()
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentDestination = navBackStackEntry?.destination
+
     Scaffold(
         floatingActionButton = {
-            FloatingActionButton(onClick = { /*TODO*/ }) {
-
+            if (currentDestination != null) {
+                if (currentDestination.route == Screens.AppBarScreens.Servers.route) {
+                    FloatingActionButton(onClick = { /*TODO*/ }) {
+                        Icon(Icons.Outlined.Add, "Add a server")
+                    }
+                }
             }
         },
         topBar = {
@@ -48,8 +58,6 @@ fun MainScreen(parentNavController: NavHostController) {
         },
         bottomBar = {
             NavigationBar {
-                val navBackStackEntry by navController.currentBackStackEntryAsState()
-                val currentDestination = navBackStackEntry?.destination
                 navBarAccessableScreens.forEach {
                         screen ->
                     NavigationBarItem(
@@ -74,6 +82,10 @@ fun MainScreen(parentNavController: NavHostController) {
             navController = navController,
             startDestination = Screens.AppBarScreens.Servers.route,
             modifier = Modifier.padding(it),
+            enterTransition = { EnterTransition.None },
+            exitTransition = { ExitTransition.None },
+            popEnterTransition = { EnterTransition.None },
+            popExitTransition = { ExitTransition.None }
         ) {
             composable(Screens.AppBarScreens.Servers.route) { ServerListScreen() }
             composable(Screens.AppBarScreens.Downloads.route) {}
